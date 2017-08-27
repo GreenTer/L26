@@ -28,11 +28,11 @@
   <div class="form-group">
     <label for="exampleFormControlSelect1">Ваш парикмахер:</label>
     <select class="form-control" name="barber">
-      <option>Александр Евгеньевич</option>
-      <option>Лев Александрович</option>
-      <option>Дарья Олеговна</option>
-      <option>Олег Евгеньевич</option>
-      <option>Елена Георгиевна</option>
+      <option <%= @barber == 'Александр Евгеньевич' ? 'selected' : '' %>>Александр Евгеньевич</option>
+      <option <%= @barber == 'Лев Александрович' ? 'selected' : '' %>>Лев Александрович</option>
+      <option <%= @barber == 'Дарья Олеговна' ? 'selected' : '' %>>Дарья Олеговна</option>
+      <option <%= @barber == 'Олег Евгеньевич' ? 'selected' : '' %>>Олег Евгеньевич</option>
+      <option <%= @barber == 'Елена Георгиевна' ? 'selected' : '' %>>Елена Георгиевна</option>
     </select>
   </div>
 
