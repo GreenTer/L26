@@ -3,7 +3,11 @@ require 'sqlite3'
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
-=begin
+
+def get_db
+	return SQLite3::Database.new 'barbershop.db'
+end 
+
 configure do
 	db = get_db
 	db.execute 'CREATE TABLE IF NOT EXISTS
@@ -17,7 +21,7 @@ configure do
 			"Color" TEXT
 		)'
 end
-=end
+
 get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
 end
@@ -48,26 +52,21 @@ post '/visit' do
 		return erb :visit
 	end
 
-=begin	db = get_db
+	db = get_db
 	db.execute 'insert into
 		Users
 		(
-			username,
-			phone,
-			datestamp,
-			barber,
-			color
+			Name,
+			Phone,
+			Datestamp,
+			Barber,
+			Color
 		)
 		values (?, ?, ?, ?, ?)', [@user_name, @user_phone, @user_time, @barber, @color]
-=end
+
 	erb "Данные: Имя - #{@user_name}, Телефон: #{@user_phone}, Время записи: #{@user_time}, Парикмахер: #{@barber}"
 
 end
-=begin
-def get_db
-	return SQLite3::Database.new 'barbershop.db'
-end 
-=end
 
 get '/showusers' do
   "Hello World"
