@@ -58,7 +58,7 @@ post '/visit' do
 		(
 			Name,
 			Phone,
-			Datestamp,
+			DateStamp,
 			Barber,
 			Color
 		)
